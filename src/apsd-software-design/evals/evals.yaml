@@ -19,7 +19,7 @@ evals:
       <example>Every request passes through Controller, Service, and Adapter layers, but each method keeps the same signature and simply forwards to the next layer.</example>
     expected_output: "The response routes the problem to deep modules."
     assertions:
-      - "The output selects apsd-deep-modules with evidence from pass-through layering."
+      - "The output contains a `Selected skills:` section with an `apsd-deep-modules` bullet, and that bullet names the Controller, Service, and Adapter pass-through layers or the same-signature forwarding behavior."
       - "The Diagnosis names shallow layering or missing abstraction value concretely."
   - id: "router-special-case-error"
     name: "router special case error"

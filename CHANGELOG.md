@@ -12,3 +12,4 @@ This project uses SemVer. Version tags use the `vMAJOR.MINOR.PATCH` format.
 - Rewrote the APSD material into focused operational skills and added `apsd-software-design` as an orchestrator for general design review and refactoring requests.
 - Aligned installation with the `oiticica-style` model so this repository links skill directories only and does not host shared `home/AGENTS.md` instructions.
 - Tightened `apsd-comments` preserve-mode output and `apsd-software-design` error-routing guidance so focused model-backed validation passes deterministically.
+- Tightened `apsd-consistency`, `apsd-deep-modules`, and `apsd-software-design` pass-through guidance and router eval contracts so the full APSD skill suite passes model-backed validation deterministically.

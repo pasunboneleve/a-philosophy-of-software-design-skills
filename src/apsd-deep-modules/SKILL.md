@@ -49,5 +49,7 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - Do not call a module deep if callers still need to know its internal format or policy.
 - If the current interface is already small and powerful, preserve it.
 - In `Better`, do not offer a menu of optional tweaks. Either remove the redundant layer or assign each retained layer one narrow responsibility that adds a real abstraction.
+- In `Better`, state the final boundary directly instead of saying `consider` or listing options. Name which layer disappears, or name the single responsibility each retained layer keeps.
+- In `Better`, do not join incompatible revisions with `or`. Pick one final boundary shape and write it as the recommendation.
 
 Source notes live in `references/notes.md`.
