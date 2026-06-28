@@ -6,6 +6,8 @@ This project uses SemVer. Version tags use the `vMAJOR.MINOR.PATCH` format.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-06-28
+
 ### Changed
 
 - Restructured the repository into a standalone skill project with `src/` skills, OpenAI metadata, evals, references, shared validation scripts, install linking, CI, and repository-local agent instructions.
