@@ -48,5 +48,7 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - Do not praise a huge options bag as flexibility if it makes common use harder.
 - Do not reject a specific API unless you can name the adjacent case it should absorb.
 - If the problem is really information leakage or pass-through structure, say so explicitly.
+- If one entry point absorbs extra tuple, iterable, repeated-action, or flag-driven semantics that make the ordinary case harder to read, call it over-general or too configurable, not overspecific.
+- When a simpler dedicated operation keeps the common case obvious and the generalized alternative burdens every caller, `Better` must move back toward the simpler common path.
 
 Source notes live in `references/notes.md`.

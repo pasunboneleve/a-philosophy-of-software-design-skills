@@ -1,23 +1,29 @@
 skill_name: "apsd-complexity"
 evals:
-  - id: "complexity-negative-scattered-change"
-    name: "complexity negative scattered change"
+  - id: "complexity-negative-manual-prefix-removal"
+    name: "complexity negative manual prefix removal"
     prompt: |
       Review this design note.
 
-      <example>To rename an order status, update the API enum, UI labels in three pages, a reporting script, a cron job, and two alert templates by hand.</example>
-    expected_output: "The response identifies change amplification and suggests a more localized design."
+      <example>if funcname.startswith("context."):
+          self.funcname = funcname.replace("context.", "")
+          self.contextfunc = True
+      else:
+          self.funcname = funcname
+          self.contextfunc = False</example>
+    expected_output: "The response identifies repeated hand-rolled prefix logic as avoidable cognitive load and suggests a simpler interface."
     assertions:
       - "The output identifies the relevant concept as apsd-complexity."
       - "The Fault names change amplification, cognitive load, or obscurity concretely rather than saying only complex."
-      - "The Better section reduces the number of places that must change for one logical rename."
-  - id: "complexity-positive-local-decision"
-    name: "complexity positive local decision"
+      - "The Better section reduces hidden edge cases or repeated caller-side logic, for example by recommending a standard prefix-removal primitive."
+  - id: "complexity-positive-removeprefix"
+    name: "complexity positive removeprefix"
     prompt: |
       Assess this design note.
 
-      <example>The application reads banner colors from one theme file, and every screen uses the shared token instead of hard-coded values.</example>
-    expected_output: "The response preserves a local design that already keeps a change in one place."
+      <example>self.contextfunc = funcname.startswith("context.")
+      self.funcname = funcname.removeprefix("context.")</example>
+    expected_output: "The response preserves a simpler design that removes repeated string-surgery knowledge from the call site."
     assertions:
       - "The output identifies the relevant concept as apsd-complexity."
       - "The output uses Preserve rather than Weak when the example is already strong."

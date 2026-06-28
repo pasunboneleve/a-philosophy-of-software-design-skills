@@ -48,5 +48,8 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - Do not demand exhaustive design exploration; one real alternative is enough.
 - Do not treat process ceremony as design quality.
 - If the example is already strategically improving code, preserve it.
+- When a weak example commits to one API shape and skips alternatives, `Better` must name a rival interface shape.
+- A real alternative changes the interface or boundary, such as `new method` versus `expand existing method`, not merely edge-case handling.
+- Do not write `we will do X, but also consider Y`. Write a real comparison before the decision.
 
 Source notes live in `references/notes.md`.

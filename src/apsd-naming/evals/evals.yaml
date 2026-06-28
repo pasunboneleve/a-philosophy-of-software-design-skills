@@ -1,24 +1,24 @@
 skill_name: "apsd-naming"
 evals:
-  - id: "naming-negative-vague-boolean"
-    name: "naming negative vague boolean"
+  - id: "naming-negative-camelcase-threading-aliases"
+    name: "naming negative camelcase threading aliases"
     prompt: |
       Review this code note.
 
-      <example>The service returns { value, status, flag } where flag means the cache entry is stale.</example>
-    expected_output: "The response names the vague fields and replaces the boolean with a predicate name."
+      <example>The module still teaches users names like currentThread() and isSet() even though the public style elsewhere is snake_case.</example>
+    expected_output: "The response names the expectation-breaking identifiers and replaces the camelCase aliases with convention-preserving snake_case names."
     assertions:
       - "The output identifies the relevant concept as apsd-naming."
-      - "The Fault names the vague or misleading identifiers concretely."
-      - "The Better section proposes a predicate-style boolean name for the stale-cache meaning."
-  - id: "naming-positive-precise-result"
-    name: "naming positive precise result"
+      - "The Fault names the vague, misleading, or expectation-breaking identifiers concretely."
+      - "The Better section proposes names like current_thread or is_set rather than preserving the camelCase aliases."
+  - id: "naming-positive-threading-predicates"
+    name: "naming positive threading predicates"
     prompt: |
       Assess this code note and revise only if needed.
 
-      <example>getLeaseStatus() returns { currentTerm, isLeader }.</example>
-    expected_output: "The response preserves a result shape whose names already communicate meaning."
+      <example>Event exposes is_set(), and the module exposes current_thread().</example>
+    expected_output: "The response preserves names whose meaning is easy to infer on first read."
     assertions:
       - "The output identifies the relevant concept as apsd-naming."
-      - "The output says no revision is needed or otherwise preserves getLeaseStatus, currentTerm, and isLeader without renaming them."
+      - "The output says no revision is needed or otherwise preserves is_set and current_thread without renaming them."
       - "The Why or Checks sections explain that the names make the result understandable without extra decoding."

@@ -1,22 +1,22 @@
 skill_name: "apsd-deep-modules"
 evals:
-  - id: "deep-modules-negative-pass-through"
-    name: "deep modules negative pass through"
+  - id: "deep-modules-negative-proof-tree-parameter"
+    name: "deep modules negative proof tree parameter"
     prompt: |
       Review this API note.
 
-      <example>UserController.getUser(id) calls UserService.getUser(id), which calls UserRepository.getUser(id). None of the layers add validation, policy, caching, or translation.</example>
-    expected_output: "The response names the pass-through structure as shallow and recommends a clearer boundary."
+      <example>evaluate_root_goal(goal, generateProofTree, span, stalledOn) is the ordinary entry point, even though most callers always pass No for generateProofTree and ignore the optional proof-tree result.</example>
+    expected_output: "The response names the leaked uncommon-case machinery as a shallow interface and recommends a clearer boundary."
     assertions:
       - "The output identifies the relevant concept as apsd-deep-modules."
-      - "The Fault names pass-through or shallow interface behavior concretely."
-      - "The Better section removes or repurposes layers so each remaining boundary adds a real abstraction."
-  - id: "deep-modules-positive-hidden-complexity"
-    name: "deep modules positive hidden complexity"
+      - "The Fault names shallow interface, information leakage, or uncommon-case burden concretely."
+      - "The Better section removes the common-case proof-tree burden from the ordinary entry point or splits the specialized path into a separate interface."
+  - id: "deep-modules-positive-hidden-scanner-state"
+    name: "deep modules positive hidden scanner state"
     prompt: |
       Assess this API note.
 
-      <example>Cache.get(sessionId) returns a session or null. Internally it validates expiry, refreshes recency, and keeps eviction bookkeeping hidden from callers.</example>
+      <example>Scanner exposes Scan, Text, Bytes, and Err. Internally it manages buffering, token boundaries, growth limits, and sentinel-error handling without callers knowing those details.</example>
     expected_output: "The response preserves a small interface that hides substantial implementation work."
     assertions:
       - "The output identifies the relevant concept as apsd-deep-modules."

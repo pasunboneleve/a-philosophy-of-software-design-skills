@@ -49,5 +49,7 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - Do not argue for a new convention unless it is strong enough to justify changing all related code.
 - If the example's real problem is naming precision rather than convention drift, say so.
 - When the fault is mixed error handling or mixed return conventions within one operation family, `Better` must pick one rule for the whole family. Do not leave one sibling returning `null`, another throwing, and another returning booleans.
+- If the example already says which spelling is primary and which names survive only as deprecated compatibility aliases, treat it as strong. Use `Preserve`, not `Weak`, `Fault`, or `Better`.
+- Do not rewrite a strong convention statement merely to restate the same primary-versus-compatibility rule in different words.
 
 Source notes live in `references/notes.md`.

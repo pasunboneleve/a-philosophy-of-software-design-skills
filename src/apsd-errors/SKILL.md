@@ -48,5 +48,8 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - Do not hide failures that callers genuinely must distinguish.
 - Do not recommend silent failure; if you mask a failure, return a clear fallback or default.
 - Name whether the better fix is define away, mask low, aggregate, or crash.
+- If an example already makes the common absence case a normal outcome through `missing_ok`, `exist_ok`, or an equivalent contract, treat it as strong. Use `Preserve`, not `Weak`.
+- Do not turn a strong opt-in contract that removes caller burden into a demand for an even broader always-succeed API unless the example shows that the parameter itself is the new complexity.
+- Do not recommend caller-side `exists` checks before deletion or another pre-check that keeps the special case at the call site. Prefer an idempotent or result-returning contract.
 
 Source notes live in `references/notes.md`.

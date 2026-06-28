@@ -29,6 +29,8 @@ Stop when one or two skills explain the real problem. Do not force every APSD ca
 - Use `apsd-general-purpose` when the interface is too specific or too configurable.
 - Use `apsd-design-process` only when the example is a plan, implementation approach, or refactoring process and it shows tactical patching, first-idea lock-in, or no interface thinking.
 - Use `apsd-consistency` when the fault is convention drift, mixed patterns, or weakened invariants.
+- Route uncommon-case flags or payloads on the ordinary path to `apsd-deep-modules`, not `apsd-general-purpose`.
+- Use `apsd-general-purpose` for operation shape or configuration burden, not leaked internals.
 
 ## Selection rules
 
@@ -61,10 +63,15 @@ Checks:
 
 - In `Selected skills`, cite the exact evidence from the example, such as the generic field names, the pass-through layers, or the catch-and-ignore exception pattern.
 - For pass-through layering, name the actual layers and the unchanged forwarding behavior from the example, such as `Controller -> Service -> Adapter with the same signature forwarded at each step`.
+- For leaked uncommon-case machinery, name the actual flag or payload and the burden on ordinary callers.
 - In `Diagnosis`, name the APSD fault directly: `shallow pass-through layer`, `avoidable exception`, `generic field names`, `information leakage`, or another concrete fault.
-- When routing to `apsd-deep-modules`, make the `Revision` choose one direct boundary change: collapse the pass-through layers into one owner, or assign each retained layer a concrete responsibility that changes the interface value.
-- When routing to `apsd-errors`, say whether callers are forced to catch and ignore an avoidable exception or another special case.
-- When routing to `apsd-errors`, make the `Revision` change the contract directly: return a status/result, make the operation idempotent, or otherwise remove the expected catch-and-ignore path.
+- When routing to `apsd-deep-modules`, make the `Revision` choose one direct boundary change: collapse pass-through layers, assign each retained layer a concrete responsibility, or split uncommon-case flags or payloads out of the ordinary entry point into a specialized interface.
+- When routing to `apsd-errors`, say whether callers must catch and ignore an avoidable exception or special case.
+- If the example names an exception, name it and say `catch and ignore` explicitly.
+- Make the `Revision` change the contract directly: return a result, make the operation idempotent, or remove the catch-and-ignore path.
+- Do not hedge `apsd-errors` revisions with `consider`, `could`, or `might`.
+- Do not fix `apsd-errors` examples with caller-side pre-checks such as `if exists then delete`; that preserves the special case and can race.
+- For delete-or-missing-file examples, prefer `make deletion idempotent` or a `missing_ok`-style contract. Never move the special case into a caller-side existence check.
 - When routing to `apsd-naming`, mention the actual vague identifiers by name.
 - When the design already passes the selected checks, write `Revision: No revision needed.`
 

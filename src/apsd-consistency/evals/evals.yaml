@@ -1,24 +1,24 @@
 skill_name: "apsd-consistency"
 evals:
-  - id: "consistency-negative-mixed-error-style"
-    name: "consistency negative mixed error style"
+  - id: "consistency-negative-mixed-threading-names"
+    name: "consistency negative mixed threading names"
     prompt: |
       Review this API note.
 
-      <example>readFile returns null on failure, writeFile throws IOError, and deleteFile returns true or false.</example>
-    expected_output: "The response names the inconsistency and recommends a single error convention."
+      <example>This module's docs tell users to call current_thread() and is_set(), but examples in the same API still mention currentThread() and isSet().</example>
+    expected_output: "The response names the convention drift and recommends one primary naming convention."
     assertions:
       - "The output identifies the relevant concept as apsd-consistency."
-      - "The Fault names inconsistent error handling or convention drift concretely."
+      - "The Fault names inconsistent naming or convention drift concretely."
       - "The Better section aligns the operations behind one clear convention."
-  - id: "consistency-negative-style-innovation"
-    name: "consistency negative style innovation"
+  - id: "consistency-positive-snake-case-primary"
+    name: "consistency positive snake case primary"
     prompt: |
-      Review this code note.
+      Assess this API note and revise only if needed.
 
-      <example>The codebase uses snake_case everywhere, but this new module introduces camelCase names because the author prefers them.</example>
-    expected_output: "The response rejects local style innovation that breaks an established project pattern."
+      <example>The public API uses current_thread() and is_set() as the primary spellings, and keeps older aliases only as deprecated compatibility names.</example>
+    expected_output: "The response preserves one primary convention and treats compatibility aliases as secondary."
     assertions:
       - "The output identifies the relevant concept as apsd-consistency."
-      - "The Fault names the mismatch with the existing convention."
-      - "The Better section restores the project convention rather than preserving the local preference."
+      - "The output uses Preserve for the strong example."
+      - "The Why or Checks sections explain that one primary convention reduces surprise."
