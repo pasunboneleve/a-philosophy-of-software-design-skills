@@ -1,6 +1,6 @@
 # APSD skills for [Codex](https://developers.openai.com/codex/cli), [Claude Code](https://claude.com/product/claude-code), and [Pi](https://pi.dev/)
 
-[![Skill CI](https://github.com/pasunboneleve/a-philosophy-of-software-design-skills/actions/workflows/skill-ci.yml/badge.svg?branch=main)](https://github.com/pasunboneleve/a-philosophy-of-software-design-skills/actions/workflows/skill-ci.yml?query=branch%3Amain)
+[![Skill CI](https://github.com/pasunboneleve/a-philosophy-of-software-design-skills/actions/workflows/skill-ci.yml/badge.svg)](https://github.com/pasunboneleve/a-philosophy-of-software-design-skills/actions/workflows/skill-ci.yml?query=event%3Apull_request)
 
 Focused software-design skills derived from John Ousterhout's *A Philosophy of Software Design*. Skill sources live under `src/`.
 
@@ -61,6 +61,10 @@ See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) for the repository shape, req
 The current version is recorded in `VERSION`.
 
 See `CHANGELOG.md` for release history. Version tags use `vMAJOR.MINOR.PATCH`.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
 
 ## Attribution
 
