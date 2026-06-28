@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Complexity"
+  short_description: "Reduce change amplification, cognitive load, and obscurity"
+  default_prompt: "Use $apsd-complexity to review this design for change amplification, cognitive load, and obscurity."

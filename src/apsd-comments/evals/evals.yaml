@@ -1,0 +1,25 @@
+skill_name: "apsd-comments"
+evals:
+  - id: "comments-negative-repeats-code"
+    name: "comments negative repeats code"
+    prompt: |
+      Review this comment.
+
+      <example># Increment the counter
+      counter += 1</example>
+    expected_output: "The response rejects the comment because it adds no information beyond the code."
+    assertions:
+      - "The output identifies the relevant concept as apsd-comments."
+      - "The Fault names that the comment repeats the code rather than adding information."
+      - "The Better section removes the useless comment or replaces it with genuinely non-obvious information."
+  - id: "comments-positive-invariant"
+    name: "comments positive invariant"
+    prompt: |
+      Assess this implementation note and revise only if needed.
+
+      <example>offset is the index of the first byte in the buffer that has not yet been returned to the client.</example>
+    expected_output: "The response preserves a comment that adds precise invariant information."
+    assertions:
+      - "The output identifies the relevant concept as apsd-comments."
+      - "The output says no revision is needed or otherwise preserves the supplied note without replacing it with a longer rewritten comment."
+      - "The Why or Checks sections explain that the note adds index or boundary information not visible from the identifier alone."

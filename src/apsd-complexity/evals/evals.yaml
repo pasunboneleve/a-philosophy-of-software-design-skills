@@ -1,0 +1,24 @@
+skill_name: "apsd-complexity"
+evals:
+  - id: "complexity-negative-scattered-change"
+    name: "complexity negative scattered change"
+    prompt: |
+      Review this design note.
+
+      <example>To rename an order status, update the API enum, UI labels in three pages, a reporting script, a cron job, and two alert templates by hand.</example>
+    expected_output: "The response identifies change amplification and suggests a more localized design."
+    assertions:
+      - "The output identifies the relevant concept as apsd-complexity."
+      - "The Fault names change amplification, cognitive load, or obscurity concretely rather than saying only complex."
+      - "The Better section reduces the number of places that must change for one logical rename."
+  - id: "complexity-positive-local-decision"
+    name: "complexity positive local decision"
+    prompt: |
+      Assess this design note.
+
+      <example>The application reads banner colors from one theme file, and every screen uses the shared token instead of hard-coded values.</example>
+    expected_output: "The response preserves a local design that already keeps a change in one place."
+    assertions:
+      - "The output identifies the relevant concept as apsd-complexity."
+      - "The output uses Preserve rather than Weak when the example is already strong."
+      - "The Why or Checks sections explain that the design limits change amplification or obscurity."

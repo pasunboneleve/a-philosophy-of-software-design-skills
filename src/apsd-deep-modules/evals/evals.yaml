@@ -1,0 +1,24 @@
+skill_name: "apsd-deep-modules"
+evals:
+  - id: "deep-modules-negative-pass-through"
+    name: "deep modules negative pass through"
+    prompt: |
+      Review this API note.
+
+      <example>UserController.getUser(id) calls UserService.getUser(id), which calls UserRepository.getUser(id). None of the layers add validation, policy, caching, or translation.</example>
+    expected_output: "The response names the pass-through structure as shallow and recommends a clearer boundary."
+    assertions:
+      - "The output identifies the relevant concept as apsd-deep-modules."
+      - "The Fault names pass-through or shallow interface behavior concretely."
+      - "The Better section removes or repurposes layers so each remaining boundary adds a real abstraction."
+  - id: "deep-modules-positive-hidden-complexity"
+    name: "deep modules positive hidden complexity"
+    prompt: |
+      Assess this API note.
+
+      <example>Cache.get(sessionId) returns a session or null. Internally it validates expiry, refreshes recency, and keeps eviction bookkeeping hidden from callers.</example>
+    expected_output: "The response preserves a small interface that hides substantial implementation work."
+    assertions:
+      - "The output identifies the relevant concept as apsd-deep-modules."
+      - "The output uses Preserve for the strong example."
+      - "The Why or Checks sections explain that callers do not need to know the hidden implementation details."

@@ -1,0 +1,43 @@
+skill_name: "apsd-software-design"
+evals:
+  - id: "router-scattered-change"
+    name: "router scattered change"
+    prompt: |
+      Review this design note.
+
+      <example>To add a new order state, engineers must update a backend enum, a UI switch statement in four screens, a reporting export, and a billing rule table.</example>
+    expected_output: "The response routes the problem through complexity first."
+    assertions:
+      - "The output uses the router shape with Selected skills, Diagnosis, Revision, and Checks sections."
+      - "The output selects apsd-complexity with evidence from scattered change."
+      - "The Revision proposes a more localized design rather than only restating the problem."
+  - id: "router-pass-through-api"
+    name: "router pass through api"
+    prompt: |
+      Review this API note.
+
+      <example>Every request passes through Controller, Service, and Adapter layers, but each method keeps the same signature and simply forwards to the next layer.</example>
+    expected_output: "The response routes the problem to deep modules."
+    assertions:
+      - "The output selects apsd-deep-modules with evidence from pass-through layering."
+      - "The Diagnosis names shallow layering or missing abstraction value concretely."
+  - id: "router-special-case-error"
+    name: "router special case error"
+    prompt: |
+      Review this API note.
+
+      <example>deleteDraft(path) throws DraftNotFoundError if the draft is already gone, so each caller catches and ignores that case.</example>
+    expected_output: "The response routes the problem to the error-design skill."
+    assertions:
+      - "The output selects apsd-errors with evidence from an avoidable exception or special-case burden."
+      - "The Revision changes the contract so callers do less exception handling."
+  - id: "router-preserve-strong-note"
+    name: "router preserve strong note"
+    prompt: |
+      Review this design note and revise only if needed.
+
+      <example>The parser exposes parse(source), hides token buffering internally, and returns a typed result object with explicit field names.</example>
+    expected_output: "The response preserves a design that is already strong."
+    assertions:
+      - "The output says no revision is needed or preserves the design without substantive rewriting."
+      - "The output selects only the skills needed to explain the passing design, such as apsd-deep-modules or apsd-naming."

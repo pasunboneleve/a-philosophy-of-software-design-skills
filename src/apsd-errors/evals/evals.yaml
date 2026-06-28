@@ -1,0 +1,24 @@
+skill_name: "apsd-errors"
+evals:
+  - id: "errors-negative-missing-file-exception"
+    name: "errors negative missing file exception"
+    prompt: |
+      Review this API note.
+
+      <example>deleteTempFile(path) throws FileNotFoundError when the file is already gone, so every caller wraps it in try/catch and ignores that one case.</example>
+    expected_output: "The response recommends defining the operation so the file simply does not exist after the call."
+    assertions:
+      - "The output identifies the relevant concept as apsd-errors."
+      - "The Fault names an avoidable exception or needless caller burden."
+      - "The Better section changes the contract so the already-missing file is handled without forcing try/catch at every call site."
+  - id: "errors-positive-default-preferences"
+    name: "errors positive default preferences"
+    prompt: |
+      Assess this API note.
+
+      <example>getPreferences(userId) returns validated defaults when the user has no saved preferences, and callers always receive a usable settings object.</example>
+    expected_output: "The response preserves an API that defines a common absence case out of existence."
+    assertions:
+      - "The output identifies the relevant concept as apsd-errors."
+      - "The output uses Preserve for the strong example."
+      - "The Why or Checks sections explain that callers receive a usable result without extra exception handling."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Consistency"
+  short_description: "Review naming, style, invariants, and error handling for convention drift"
+  default_prompt: "Use $apsd-consistency to review this code or design note for convention drift and surprise."

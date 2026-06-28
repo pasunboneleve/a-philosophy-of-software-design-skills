@@ -1,0 +1,24 @@
+skill_name: "apsd-naming"
+evals:
+  - id: "naming-negative-vague-boolean"
+    name: "naming negative vague boolean"
+    prompt: |
+      Review this code note.
+
+      <example>The service returns { value, status, flag } where flag means the cache entry is stale.</example>
+    expected_output: "The response names the vague fields and replaces the boolean with a predicate name."
+    assertions:
+      - "The output identifies the relevant concept as apsd-naming."
+      - "The Fault names the vague or misleading identifiers concretely."
+      - "The Better section proposes a predicate-style boolean name for the stale-cache meaning."
+  - id: "naming-positive-precise-result"
+    name: "naming positive precise result"
+    prompt: |
+      Assess this code note and revise only if needed.
+
+      <example>getLeaseStatus() returns { currentTerm, isLeader }.</example>
+    expected_output: "The response preserves a result shape whose names already communicate meaning."
+    assertions:
+      - "The output identifies the relevant concept as apsd-naming."
+      - "The output says no revision is needed or otherwise preserves getLeaseStatus, currentTerm, and isLeader without renaming them."
+      - "The Why or Checks sections explain that the names make the result understandable without extra decoding."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Errors"
+  short_description: "Simplify exception strategy by defining, masking, or aggregating failures"
+  default_prompt: "Use $apsd-errors to review this error-handling design for avoidable exceptions and special cases."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Comments"
+  short_description: "Review comments for abstraction, precision, and non-obvious intent"
+  default_prompt: "Use $apsd-comments to review these comments and interface docs for missing or repeated information."

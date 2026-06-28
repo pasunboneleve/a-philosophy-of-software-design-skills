@@ -1,0 +1,24 @@
+skill_name: "apsd-general-purpose"
+evals:
+  - id: "general-purpose-negative-too-specific"
+    name: "general purpose negative too specific"
+    prompt: |
+      Review this API note.
+
+      <example>TextEditor exposes insertCharAtCursor, insertCharAfterSelection, insertCharAtPosition, deleteSelection, deleteCharAtCursor, and deleteLine as separate entry points.</example>
+    expected_output: "The response recommends a smaller, somewhat general-purpose interface."
+    assertions:
+      - "The output identifies the relevant concept as apsd-general-purpose."
+      - "The Fault names that the interface is too specific or fragmented."
+      - "The Better section consolidates related operations into a smaller, more general API."
+  - id: "general-purpose-negative-too-general"
+    name: "general purpose negative too general"
+    prompt: |
+      Review this API note.
+
+      <example>Processor.process(data, mode, config, flags, options, callback, retries, timeout, cache, batchSize, validator, serializer) is the single entry point for every workflow.</example>
+    expected_output: "The response rejects an over-general interface whose common case is buried under options."
+    assertions:
+      - "The output identifies the relevant concept as apsd-general-purpose."
+      - "The Fault names that the interface is over-general or too configurable."
+      - "The Better section restores a simpler common path instead of preserving the large options surface."
