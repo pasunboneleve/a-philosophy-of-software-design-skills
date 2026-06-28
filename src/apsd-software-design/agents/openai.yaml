@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Software Design"
+  short_description: "Route general design requests through the relevant APSD skills"
+  default_prompt: "Use $apsd-software-design to review this code or design for complexity, abstraction quality, and maintainability."

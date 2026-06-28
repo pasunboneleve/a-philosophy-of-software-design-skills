@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD General Purpose"
+  short_description: "Find the sweet spot between one-off APIs and over-general frameworks"
+  default_prompt: "Use $apsd-general-purpose to review this interface for overspecific or over-general design."

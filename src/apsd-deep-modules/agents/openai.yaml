@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Deep Modules"
+  short_description: "Review interfaces for depth, information hiding, and pass-through waste"
+  default_prompt: "Use $apsd-deep-modules to review this API or module boundary for depth and information hiding."

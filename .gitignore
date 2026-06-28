@@ -1,0 +1,10 @@
+
+# Local secrets
+.env
+.kata.local.toml
+
+# Local validation artifacts
+.skilpel/
+
+# Python bytecode caches
+**/__pycache__/

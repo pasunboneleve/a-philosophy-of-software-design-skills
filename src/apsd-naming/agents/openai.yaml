@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Naming"
+  short_description: "Make names and local structure obvious to readers"
+  default_prompt: "Use $apsd-naming to review these identifiers and code structure for precision and obviousness."

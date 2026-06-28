@@ -1,0 +1,24 @@
+skill_name: "apsd-errors"
+evals:
+  - id: "errors-negative-catch-and-ignore-unlink"
+    name: "errors negative catch and ignore unlink"
+    prompt: |
+      Review this API note.
+
+      <example>Callers delete temporary files with try/except FileNotFoundError because removing an already-missing path should usually be treated as success.</example>
+    expected_output: "The response recommends defining the operation so the file simply does not exist after the call."
+    assertions:
+      - "The output identifies the relevant concept as apsd-errors."
+      - "The Fault names an avoidable exception or needless caller burden."
+      - "The Better section changes the contract so the already-missing file is handled without forcing try/catch at every call site."
+  - id: "errors-positive-missing-ok"
+    name: "errors positive missing ok"
+    prompt: |
+      Assess this API note.
+
+      <example>Path.unlink(missing_ok=True) removes the file when present and treats an already-missing path as a normal outcome.</example>
+    expected_output: "The response preserves an API that defines a common absence case out of existence."
+    assertions:
+      - "The output identifies the relevant concept as apsd-errors."
+      - "The output uses Preserve for the strong example."
+      - "The Why or Checks sections explain that the missing-file case becomes a normal outcome without extra caller-side exception handling."

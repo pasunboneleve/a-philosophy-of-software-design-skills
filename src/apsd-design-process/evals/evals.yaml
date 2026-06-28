@@ -1,0 +1,24 @@
+skill_name: "apsd-design-process"
+evals:
+  - id: "design-process-negative-no-alternatives"
+    name: "design process negative no alternatives"
+    prompt: |
+      Review this implementation plan.
+
+      <example>We will add removeprefix() as a new string method and skip any discussion of expanding lstrip(), repeated removal, or error behavior because that would slow the proposal down.</example>
+    expected_output: "The response rejects first-idea lock-in and asks for at least one materially different alternative."
+    assertions:
+      - "The output identifies the relevant concept as apsd-design-process."
+      - "The Fault names tactical patching, first-idea lock-in, or missing alternatives."
+      - "The Better section names at least one materially different candidate, such as comparing a new method against expanding an existing method, or it switches explicitly to an interface-first comparison before implementation."
+  - id: "design-process-positive-rejected-ideas"
+    name: "design process positive rejected ideas"
+    prompt: |
+      Assess this plan.
+
+      <example>Before finalizing removeprefix() and removesuffix(), the proposal compares expanding lstrip()/rstrip(), repeated removal, and exception-raising semantics, then chooses the interface that keeps the common case obvious.</example>
+    expected_output: "The response preserves a process that explicitly compares alternatives and starts from the interface shape."
+    assertions:
+      - "The output identifies the relevant concept as apsd-design-process."
+      - "The output uses Preserve for the strong example."
+      - "The Why or Checks sections explain that the process considers alternatives and clarifies the interface before implementation."

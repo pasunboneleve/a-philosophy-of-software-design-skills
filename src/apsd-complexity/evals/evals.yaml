@@ -1,0 +1,30 @@
+skill_name: "apsd-complexity"
+evals:
+  - id: "complexity-negative-manual-prefix-removal"
+    name: "complexity negative manual prefix removal"
+    prompt: |
+      Review this design note.
+
+      <example>if funcname.startswith("context."):
+          self.funcname = funcname.replace("context.", "")
+          self.contextfunc = True
+      else:
+          self.funcname = funcname
+          self.contextfunc = False</example>
+    expected_output: "The response identifies repeated hand-rolled prefix logic as avoidable cognitive load and suggests a simpler interface."
+    assertions:
+      - "The output identifies the relevant concept as apsd-complexity."
+      - "The Fault names change amplification, cognitive load, or obscurity concretely rather than saying only complex."
+      - "The Better section keeps the fix local and prefers the standard prefix-removal primitive over helper extraction or fresh slicing logic."
+  - id: "complexity-positive-removeprefix"
+    name: "complexity positive removeprefix"
+    prompt: |
+      Assess this design note.
+
+      <example>self.contextfunc = funcname.startswith("context.")
+      self.funcname = funcname.removeprefix("context.")</example>
+    expected_output: "The response preserves a simpler design that removes repeated string-surgery knowledge from the call site."
+    assertions:
+      - "The output identifies the relevant concept as apsd-complexity."
+      - "The output uses Preserve rather than Weak when the example is already strong."
+      - "The Why or Checks sections explain that the design limits change amplification or obscurity."

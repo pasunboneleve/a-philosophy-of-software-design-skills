@@ -1,0 +1,4 @@
+interface:
+  display_name: "APSD Design Process"
+  short_description: "Review whether the design process is strategic, comparative, and comment-led"
+  default_prompt: "Use $apsd-design-process to review this implementation plan or refactoring approach."
