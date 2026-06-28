@@ -15,7 +15,7 @@ evals:
     assertions:
       - "The output identifies the relevant concept as apsd-complexity."
       - "The Fault names change amplification, cognitive load, or obscurity concretely rather than saying only complex."
-      - "The Better section reduces hidden edge cases or repeated caller-side logic, for example by recommending a standard prefix-removal primitive."
+      - "The Better section keeps the fix local and prefers the standard prefix-removal primitive over helper extraction or fresh slicing logic."
   - id: "complexity-positive-removeprefix"
     name: "complexity positive removeprefix"
     prompt: |
