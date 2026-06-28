@@ -29,8 +29,8 @@ evals:
       <example>deleteDraft(path) throws DraftNotFoundError if the draft is already gone, so each caller catches and ignores that case.</example>
     expected_output: "The response routes the problem to the error-design skill."
     assertions:
-      - "The output selects apsd-errors with evidence from an avoidable exception or special-case burden."
-      - "The Revision changes the contract so callers do less exception handling."
+      - "The output selects `apsd-errors` and says callers catch and ignore an avoidable exception or special case."
+      - "The Revision replaces the exception-based contract with a status, idempotent, or equivalent contract that makes callers handle fewer exceptions."
   - id: "router-preserve-strong-note"
     name: "router preserve strong note"
     prompt: |

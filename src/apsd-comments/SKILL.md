@@ -41,7 +41,23 @@ Checks:
 - Precision present where needed: Pass/Fail
 ```
 
-For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
+For strong examples, use:
+
+```markdown
+Preserve:
+<supplied example text>
+
+Revision:
+No revision needed.
+
+Why:
+<what invariant, boundary, unit, or ownership rule the note adds>
+
+Checks:
+- Adds new information: Pass/Fail
+- Right abstraction level: Pass/Fail
+- Precision present where needed: Pass/Fail
+```
 
 ## Boundaries
 
@@ -50,5 +66,6 @@ For strong examples, use `Preserve` instead of `Weak`, `Fault`, and `Better`.
 - If the right fix is to simplify the code first, say so.
 - If a comment already adds a useful invariant, boundary, null rule, ownership rule, or unit that the identifier alone cannot express, treat it as strong. Do not downgrade it merely because an example or expansion could be added.
 - Do not ask for examples, use cases, or surrounding context in a focused comment review when the supplied note already states the needed invariant or unit precisely enough.
+- When the prompt says `revise only if needed`, and the note already names the owner, boundary, or state transition precisely enough for correct use, write `Revision: No revision needed.` Then explain the passing relation in `Why` and `Checks`.
 
 Source notes live in `references/notes.md`.

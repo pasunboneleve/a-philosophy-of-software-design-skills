@@ -62,6 +62,7 @@ Checks:
 - In `Selected skills`, cite the exact evidence from the example, such as the generic field names, the pass-through layers, or the catch-and-ignore exception pattern.
 - In `Diagnosis`, name the APSD fault directly: `shallow pass-through layer`, `avoidable exception`, `generic field names`, `information leakage`, or another concrete fault.
 - When routing to `apsd-errors`, say whether callers are forced to catch and ignore an avoidable exception or another special case.
+- When routing to `apsd-errors`, make the `Revision` change the contract directly: return a status/result, make the operation idempotent, or otherwise remove the expected catch-and-ignore path.
 - When routing to `apsd-naming`, mention the actual vague identifiers by name.
 - When the design already passes the selected checks, write `Revision: No revision needed.`
 
